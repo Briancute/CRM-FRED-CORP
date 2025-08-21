@@ -1,0 +1,267 @@
+.wpai-chat-widget {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+}
+
+.wpai-chat-icon {
+    width: 60px;
+    height: 60px;
+    background: #ffd700;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+}
+
+.wpai-chat-icon:hover {
+    transform: scale(1.1);
+}
+
+.wpai-chat-container {
+    position: absolute;
+    bottom: 80px;
+    right: 0;
+    width: 350px;
+    height: 500px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.wpai-chat-header {
+    background: #ffd700;
+    color: black;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.wpai-chat-header h3 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.wpai-close-chat {
+    background: none;
+    border: none;
+    color: #006400;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 0;
+    line-height: 1;
+}
+
+.wpai-chat-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.wpai-message {
+    max-width: 80%;
+    padding: 10px 15px;
+    border-radius: 15px;
+    margin-bottom: 5px;
+}
+
+.wpai-message.user {
+    background: #006400;
+    color: white;
+    align-self: flex-end;
+    border-bottom-right-radius: 5px;
+}
+
+.wpai-message.ai {
+    background: #f0f2f5;
+    color: #1c1e21;
+    align-self: flex-start;
+    border-bottom-left-radius: 5px;
+}
+
+.wpai-message p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.wpai-chat-input {
+    padding: 15px;
+    border-top: 1px solid #e6e6e6;
+    display: flex;
+    gap: 10px;
+    align-items: flex-end;
+}
+
+.wpai-chat-input textarea {
+    flex: 1;
+    border: 1px solid #e6e6e6;
+    border-radius: 20px;
+    padding: 8px 15px;
+    font-size: 14px;
+    resize: none;
+    max-height: 100px;
+    min-height: 20px;
+    outline: none;
+}
+
+.wpai-chat-input textarea:focus {
+    border-color: #007bff;
+}
+
+.wpai-send-message {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+}
+
+.wpai-send-message:hover svg {
+    transform: scale(1.1);
+}
+
+.wpai-send-message svg {
+    transition: transform 0.2s ease;
+}
+
+/* Loading animation */
+.wpai-message.loading:after {
+    content: '...';
+    animation: loading 1s infinite;
+}
+
+@keyframes loading {
+    0% { content: '.'; }
+    33% { content: '..'; }
+    66% { content: '...'; }
+}
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+    .wpai-chat-container {
+        width: 100%;
+        height: 100vh;
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        border-radius: 0;
+        z-index: 99999;
+    }
+
+    .wpai-chat-icon {
+        width: 50px;
+        height: 50px;
+    }
+
+    .wpai-chat-icon svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    .wpai-chat-header {
+        padding: 12px 15px;
+    }
+
+    .wpai-chat-header h3 {
+        font-size: 14px;
+    }
+
+    .wpai-chat-input {
+        padding: 10px;
+    }
+
+    .wpai-chat-input textarea {
+        font-size: 14px;
+        padding: 8px 35px 8px 10px;
+    }
+
+    .wpai-send-message {
+        width: 30px;
+        height: 30px;
+    }
+
+    .wpai-send-message svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    .wpai-message {
+        max-width: 85%;
+        font-size: 14px;
+    }
+}
+
+/* Small mobile devices */
+@media screen and (max-width: 480px) {
+    .wpai-chat-widget {
+        bottom: 10px;
+        right: 10px;
+    }
+
+    .wpai-chat-icon {
+        width: 45px;
+        height: 45px;
+    }
+
+    .wpai-chat-messages {
+        padding: 10px;
+    }
+
+    .wpai-message {
+        max-width: 90%;
+        padding: 8px 12px;
+    }
+}
+
+/* Handle keyboard appearance on mobile */
+@media screen and (max-height: 400px) {
+    .wpai-chat-container {
+        height: 100%;
+        max-height: calc(100vh - 60px);
+    }
+}
+
+/* Ensure smooth transitions */
+.wpai-chat-container {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Prevent scrolling of background when chat is open on mobile */
+body.chat-open {
+    overflow: hidden;
+}
+
+/* Developer credits */
+.wpai-credits {
+    padding: 8px;
+    text-align: center;
+    background: #f0f2f5;
+    border-top: 1px solid #e4e6eb;
+}
+
+.wpai-credits p {
+    margin: 0;
+    font-size: 12px;
+    color: #65676b;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}

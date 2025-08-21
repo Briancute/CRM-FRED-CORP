@@ -1,0 +1,118 @@
+/* Dashboard styles */
+.wpai-dashboard {
+    max-width: 1200px;
+    margin: 20px auto;
+}
+
+.wpai-card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 24px;
+    margin-top: 24px;
+}
+
+.wpai-card {
+    background: white;
+    border: 1px solid #e2e4e7;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.wpai-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.wpai-card-header {
+    padding: 16px 20px;
+    border-bottom: 1px solid #e2e4e7;
+    background: #ffd700;
+}
+
+.wpai-card-header h2 {
+    margin: 0;
+    font-size: 18px;
+    color: #006400;
+}
+
+.wpai-card-content {
+    padding: 20px;
+}
+
+.wpai-card-content p {
+    margin: 0 0 16px 0;
+    color: #555;
+}
+
+/* Form styles */
+.wpai-create-assistant {
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+.wpai-form {
+    background: white;
+    padding: 24px;
+    border-radius: 8px;
+    border: 1px solid #e2e4e7;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.wpai-form-field {
+    margin-bottom: 20px;
+}
+
+.wpai-form-field label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #1e1e1e;
+}
+
+.wpai-form-field input[type="text"],
+.wpai-form-field textarea,
+.wpai-form-field select {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #e2e4e7;
+    border-radius: 4px;
+    transition: border-color 0.2s ease;
+}
+
+.wpai-form-field input[type="text"]:focus,
+.wpai-form-field textarea:focus,
+.wpai-form-field select:focus {
+    border-color: #ffd700;
+    box-shadow: 0 0 0 1px #ffd700;
+    outline: none;
+}
+
+/* Button styles */
+.button.button-primary {
+    background: #006400;
+    border-color: #006400;
+    color: white;
+}
+
+.button.button-primary:hover {
+    background: #005000;
+    border-color: #005000;
+}
+
+.button .dashicons {
+    vertical-align: middle;
+    margin-right: 4px;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 782px) {
+    .wpai-card-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .wpai-form {
+        padding: 16px;
+    }
+}
